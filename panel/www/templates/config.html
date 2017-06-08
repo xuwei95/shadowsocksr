@@ -1,13 +1,35 @@
 $def with (result)
+<style>
+    #main li{
+         list-style-type:none ;
+    }
+    #main form label{
+        background: red;
+        width:100px;
+        line-height:50px;
+        font-size: 30px;
+    }
+    #main form input{
+        width:150px;
+        line-height:30px;
+        font-size: 20px;
+    }
+    #main form select{
+        width:150px;
+        line-height:30px;
+        font-size: 20px;
+    }
+</style>
+<div id="main">
 <ul>
 $for res in result:
     <li id="t$res.id"></li>
 </ul>
 <form method="post" action="config">
 <input type="hidden" name="id" value=$res.id>
-   用户名:<input type="text" name="user" value=$res.user /></br>
-    密码:<input type="text" name="passwd" value=$res.passwd /></br>
-    协议:<select name="protocol" >
+   <label>用户名:</label><input type="text" name="user" value=$res.user /></br>
+    <label>密码:</label><input type="text" name="passwd" value=$res.passwd /></br>
+    <label>协议:</label><select name="protocol" >
         <option  value="origin">origin</option>
         <option  value="auth_sha1">auth_sha1</option>
         <option  value="auth_sha1_v4">auth_sha1_v4</option>
@@ -15,7 +37,7 @@ $for res in result:
         <option  value="auth_aes128_sha1" selected="selected">auth_aes128_sha1</option>
         <option  value="auth_chain_a">auth_chain_a</option>
         </select></br>
-    加密方法:<select name="method" >
+    <label>加密方法:</label><select name="method" >
         <option  value="aes-128-cfb"selected="selected">aes-128-cfb</option>
         <option  value="aes-192-cfb">aes-192-cfb</option>
         <option  value="aes-256-cfb">aes-256-cfb</option>
@@ -25,7 +47,7 @@ $for res in result:
         <option  value="aes-192-ctr">aes-192-ctr</option>
         <option  value="sasa20">sasa20</option>
         </select></br>
-    混淆方式:<select name="obfs" >
+    <label>混淆方式:</label><select name="obfs" >
         <option  value="plain">plain</option>
         <option  value="http_simple">http_simple</option>
         <option  value="http_simple_compatible" selected="selected">http_simple_compatible</option>
@@ -36,3 +58,4 @@ $for res in result:
         </select></br>
     <input type="submit" value="修改" /></p>
 </form>
+</div>

@@ -2,12 +2,12 @@ $def with (result)
 <script>
     function f(a){
         var ret=""
-        if (a/1024<4){
+        if (a/1024<1){
             ret=a
-        }else if(a/(1024*1024)<4){
+        }else if(a/(1024*1024)<1){
             b=(a/1024).toFixed(2)
             ret=b+"KB"
-        }else if(a/(1024*1024*1024)<4){
+        }else if(a/(1024*1024*1024)<1){
             b=(a/(1024*1024)).toFixed(2)
             ret=b+"MB"
         }else{
@@ -17,7 +17,14 @@ $def with (result)
         return ret
     }
 </script>
-<br>
+<style>
+    #main ul label{
+        background: red;
+        font-size: 40px;
+    }
+</style>
+<div id="main">
+<ul>
 $for res in result:
     <label>已用流量：</label><label id="used"></label></br>
     <label>剩余流量：</label><label id="u"></label></br>
@@ -28,3 +35,4 @@ document.getElementById("u").innerText=f($res.u);
 document.getElementById("enable").innerText=f($res.enable);
 </script>
 </ul>
+</div>

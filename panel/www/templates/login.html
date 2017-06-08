@@ -1,5 +1,22 @@
+<style>
+    #main{
+        text-align:center;
+        border:1px solid grey;
+    }
+    #main form label{
+         width:150px;
+        font-size: 30px;
+    }
+    #main form input{
+         width:300px;
+        line-height:30px;
+        font-size: 20px;
+    }
+</style>
+<div id="main">
 <form method="post" action="login">
-<br>user:<input type="text" name="user" /></br>
-    passwd:<input type="text" name="passwd" /></br>
+<br><label>用户名:</label><input type="text" name="user" /></br>
+    <label>密码:</label><input type="text" name="passwd" /></br>
     <input type="submit" value="登录" /></p>
 </form>
+</div>

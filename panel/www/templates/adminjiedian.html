@@ -1,0 +1,80 @@
+$def with (result)
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link href="/static/css/admin.css" rel="stylesheet" type="text/css">
+    <script>
+    function f(a){
+        var ret=""
+        if (a/1024<1){
+            ret=a
+        }else if(a/(1024*1024)<1){
+            b=(a/1024).toFixed(2)
+            ret=b+"KB"
+        }else if(a/(1024*1024*1024)<1){
+            b=(a/(1024*1024)).toFixed(2)
+            ret=b+"MB"
+        }else{
+            b=(a/(1024*1024*1024)).toFixed(2)
+            ret=b+"GB"
+        }
+        return ret
+    }
+</script>
+    <style>
+        #menu ul caption{
+            color: red;
+            text-align: center;
+        }
+        #tb tr td{
+            border:1px solid red;
+            width: 120px;
+        }
+        #title tr td{
+            border:1px solid red;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+ <h1 class="heading">SSR-Panel后台</h1>
+</div>
+<div id="menu">
+<ul>
+    <!--for i in range(len(result)):-->
+    <caption>用户列表</caption>
+    <table id="title">
+    <tr>
+             <td>用户名</td>
+            <td>端口</td>
+            <td>已用</td>
+             <td>可用</td>
+              <td>总流量</td>
+              <td>用户类型</td>
+  </tr>
+    </table>
+    $for res in result:
+    <table id="tb">
+        <tr>
+            <td>$res.user</td>
+            <td>$res.port</td>
+            <td id="t$res.used"><script>document.write(f($res.used))</script></td>
+            <td id="t$res.u"><script>document.write(f($res.u))</script></td>
+            <td id="t$res.enable"><script>document.write(f($res.enable))</script></td>
+            <td>$res.type</td>
+            <td>
+            <form>
+                <input type="submit" value="配置">
+            </form></td>
+        </tr>
+</table>
+</ul>
+</div>
+<div id="footer">
+    <h1>SSR-Panel</h1>
+</div>
+</body>
+</html>
