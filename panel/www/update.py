@@ -1,7 +1,6 @@
 #coding:utf-8 -*-
 import json
 import pymysql
-import getip
 import time
 # 连接数据库
 connect = pymysql.Connect(
