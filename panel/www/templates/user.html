@@ -1,0 +1,48 @@
+$def with (result)
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <link href="/static/css/user.css" rel="stylesheet" type="text/css">
+    <script>
+
+    </script>
+</head>
+<body>
+<div id="container">
+ <h1 class="heading">SSR用户面板</h1>
+</div>
+<div id="menu">
+<ul>
+    $for res in result:
+    <form method="post" action="/user/xinxi" target="main">
+        <input type="hidden" name="id" value=$res.id/>
+        <input type="submit" class="btns" name="submit" value="用户信息"/>
+    </form>
+    <form method="post" action="/user/jiedian" target="main">
+        <input type="hidden" name="id" value=$res.id/>
+        <input type="submit" class="btns" name="submit" value="节点列表"/>
+    </form>
+    <form method="get" action="/user/config" target="main">
+        <input type="hidden" name="id" value=$res.id/>
+        <input type="submit" class="btns" name="submit" value="修改配置"/>
+    </form>
+    <form method="post" action="/user/link" target="main">
+        <input type="hidden" name="id" value=$res.id/>
+        <input type="submit" class="btns" name="submit" value="链接信息"/>
+    </form>
+    <form method="post" action="/user/liuliang" target="main">
+        <input type="hidden" name="id" value=$res.id/>
+        <input type="submit" class="btns" name="submit" value="流量信息"/>
+    </form>
+</ul>
+</div>
+<div id="content">
+<iframe name="main" width="80%" height="100%" frameborder="0px"></iframe>
+</div>
+<div id="footer">
+    <h1>SSR-Panel</h1>
+</div>
+</body>
+</html>

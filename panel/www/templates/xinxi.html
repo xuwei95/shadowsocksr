@@ -1,0 +1,12 @@
+$def with (result)
+<ul>
+$for res in result:
+    <label>用户名：</label><li id="">$res.user</li>
+    <label>密码：</label><li id="t$res.passwd">$res.passwd</li>
+    <label>服务器：</label><li id="t$res.server">$res.server</li>
+    <label>端口：</label><li id="t$res.port">$res.port</li>
+    <label>加密方法：</label><li id="t$res.method">$res.method</li>
+    <label>协议：</label><li id="t$res.protocol">$res.protocol</li>
+    <label>单端口多用户协议参数：</label><li id="t$res.canshu">$res.canshu</li>
+    <label>混淆方式：</label><li id="t$res.obfs">$res.obfs</li>
+</ul>

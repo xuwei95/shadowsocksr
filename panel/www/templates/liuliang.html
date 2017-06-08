@@ -1,0 +1,30 @@
+$def with (result)
+<script>
+    function f(a){
+        var ret=""
+        if (a/1024<4){
+            ret=a
+        }else if(a/(1024*1024)<4){
+            b=(a/1024).toFixed(2)
+            ret=b+"KB"
+        }else if(a/(1024*1024*1024)<4){
+            b=(a/(1024*1024)).toFixed(2)
+            ret=b+"MB"
+        }else{
+            b=(a/(1024*1024*1024)).toFixed(2)
+            ret=b+"GB"
+        }
+        return ret
+    }
+</script>
+<br>
+$for res in result:
+    <label>已用流量：</label><label id="used"></label></br>
+    <label>剩余流量：</label><label id="u"></label></br>
+    <label>总流量：</label><label id="enable"></label></br>
+<script>
+document.getElementById("used").innerText=f($res.used);
+document.getElementById("u").innerText=f($res.u);
+document.getElementById("enable").innerText=f($res.enable);
+</script>
+</ul>

@@ -1,0 +1,16 @@
+$def with (result)
+<ul>
+$for res in result:
+    <li id="t$res.id">$res.user</li>
+</ul>
+<form method="post" action="add">
+<br>server:<input type="text" name="server" /></br>
+    port:<input type="text" name="port" /></br>
+     user:<input type="text" name="user" /></br>
+    passwd:<input type="text" name="passwd" /></br>
+    enable:<input type="text" name="enable" /></br>
+    protocol:<input type="text" name="protocol" /></br>
+    method:<input type="text" name="method" /></br>
+    obfs:<input type="text" name="obfs" /></br>
+    <input type="submit" value="Add" /></p>
+</form>
